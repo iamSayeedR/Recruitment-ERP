@@ -1,0 +1,102 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  display: flex;
+  gap: var(--space-1);
+}
+
+.asterisk {
+  color: var(--color-error);
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding-block: var(--space-2);
+  padding-inline: var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 1px var(--color-border-focus);
+}
+
+.input:disabled {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.hasError {
+  border-color: var(--color-border-error);
+}
+
+.hasError:focus-visible {
+  border-color: var(--color-border-error);
+  box-shadow: 0 0 0 1px var(--color-border-error);
+}
+
+.leftIcon {
+  position: absolute;
+  inset-inline-start: var(--space-3);
+  display: flex;
+  align-items: center;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.rightIcon {
+  position: absolute;
+  inset-inline-end: var(--space-3);
+  display: flex;
+  align-items: center;
+  color: var(--color-text-tertiary);
+}
+
+.hasLeftIcon {
+  padding-inline-start: var(--space-10);
+}
+
+.hasRightIcon {
+  padding-inline-end: var(--space-10);
+}
+
+.errorText {
+  font-size: var(--font-size-xs);
+  color: var(--color-error);
+  margin-block-start: var(--space-1);
+}
+
+.hintText {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-block-start: var(--space-1);
+}

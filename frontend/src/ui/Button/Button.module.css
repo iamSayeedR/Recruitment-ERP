@@ -1,0 +1,126 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  user-select: none;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.variant-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+.variant-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+}
+
+.variant-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-inverse);
+}
+.variant-secondary:hover:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+.variant-outline {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+.variant-outline:hover:not(:disabled) {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-text-tertiary);
+}
+
+.variant-ghost {
+  background-color: transparent;
+  color: var(--color-text);
+}
+.variant-ghost:hover:not(:disabled) {
+  background-color: var(--color-surface-hover);
+}
+
+.variant-danger {
+  background-color: var(--color-error);
+  color: var(--color-text-inverse);
+}
+.variant-danger:hover:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+/* Sizes */
+.size-sm {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-sm);
+  min-block-size: 32px;
+}
+
+.size-md {
+  padding-block: var(--space-2);
+  padding-inline: var(--space-4);
+  font-size: var(--font-size-sm);
+  min-block-size: 40px;
+}
+
+.size-lg {
+  padding-block: var(--space-3);
+  padding-inline: var(--space-6);
+  font-size: var(--font-size-base);
+  min-block-size: 48px;
+}
+
+/* Modifiers */
+.fullWidth {
+  width: 100%;
+}
+
+.loading {
+  color: transparent !important;
+  position: relative;
+}
+
+.spinnerWrapper {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse); /* Will inherit for outline/ghost using currentColor */
+}
+
+.variant-outline .spinnerWrapper,
+.variant-ghost .spinnerWrapper {
+  color: var(--color-text);
+}
+
+.iconStart {
+  margin-inline-end: var(--space-2);
+  display: flex;
+  align-items: center;
+}
+
+.iconEnd {
+  margin-inline-start: var(--space-2);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}

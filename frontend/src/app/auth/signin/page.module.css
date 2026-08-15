@@ -1,0 +1,205 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-bg, #F4F6F9);
+  padding: 1.5rem;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+}
+
+.glassCard {
+  width: 100%;
+  max-width: 440px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
+}
+
+.brandHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--color-primary, #38BDF8);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.15rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+}
+
+.brandHeader h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text, #1E293B);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.brandHeader p {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #64748B);
+  margin-top: 0.25rem;
+}
+
+.errorMessage {
+  background: var(--color-error-bg, #FEE2E2);
+  border: 1px solid var(--color-error, #EF4444);
+  color: #991B1B;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.inputGroup label {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-text, #1E293B);
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background: var(--color-bg, #F8FAFC);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 0.5rem;
+  color: var(--color-text, #1E293B);
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.inputGroup input:focus {
+  border-color: var(--color-primary, #38BDF8);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.primaryBtn {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  background: var(--color-primary, #38BDF8);
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(56, 189, 248, 0.3);
+  transition: all 0.15s ease;
+}
+
+.primaryBtn:hover {
+  background: var(--color-primary-hover, #0284C7);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border-subtle, #F1F5F9);
+}
+
+.divider span {
+  padding: 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-tertiary, #94A3B8);
+  letter-spacing: 0.06em;
+}
+
+.ssoBtn {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: 0.5rem;
+  color: var(--color-text, #1E293B);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease;
+}
+
+.ssoBtn:hover {
+  background: var(--color-surface-hover, #F8FAFC);
+  border-color: #CBD5E1;
+}
+
+.demoSection {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border-subtle, #F1F5F9);
+}
+
+.demoTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #64748B);
+  margin-bottom: 0.6rem;
+}
+
+.demoButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.demoChip {
+  padding: 0.35rem 0.65rem;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 0.4rem;
+  color: #0284C7;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.demoChip:hover {
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+}

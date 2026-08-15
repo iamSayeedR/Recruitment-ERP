@@ -1,0 +1,15 @@
+.container {
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 1.5rem;
+}
+
+.header h2 {
+  font-size: var(--font-sizes-xl);
+  margin: 0;
+}

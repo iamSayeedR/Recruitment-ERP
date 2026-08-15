@@ -1,0 +1,163 @@
+.dashboardContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: var(--font-sans);
+}
+
+.header {
+  margin-bottom: 0.25rem;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Clean elevated white card */
+.glassCard {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 1.25rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+  position: sticky;
+  top: 0;
+  background: #FFFFFF;
+  z-index: 2;
+}
+
+/* Activity Feed */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.activityItem {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border-subtle);
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-lg);
+  animation: slideIn 0.25s ease forwards;
+}
+
+.activityItem:hover {
+  border-color: var(--color-border);
+  background: #FFFFFF;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.activityType {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.775rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.activityTime {
+  color: var(--color-text-tertiary);
+  font-size: 0.775rem;
+}
+
+.activityBody {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.activityActor {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.expiring_soon { background: #FEF3C7; color: #92400E; }
+.EXPIRING_SOON { background: #FEF3C7; color: #92400E; }
+.expired       { background: var(--color-error-bg); color: var(--color-error); }
+.EXPIRED       { background: var(--color-error-bg); color: var(--color-error); }
+.in_progress   { background: var(--color-primary-light); color: var(--color-primary); }
+.submitted     { background: var(--color-success-bg); color: var(--color-success); }
+.SUBMITTED     { background: var(--color-success-bg); color: var(--color-success); }
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.table td {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

@@ -1,0 +1,152 @@
+[WebServer]  ΓÜá Port 3000 is in use, trying 3001 instead.
+[WebServer]  ΓÜá Port 3001 is in use, trying 3002 instead.
+[WebServer]  ΓÜá Port 3002 is in use, trying 3003 instead.
+
+Running 5 tests using 4 workers
+
+  x  4 [chromium] ΓÇ║ e2e\compliance.spec.ts:10:7 ΓÇ║ Compliance Dashboard ΓÇ║ should display upcoming expirations and allow navigation to checklist (1.2m)
+  x  1 [chromium] ΓÇ║ e2e\compliance.spec.ts:32:7 ΓÇ║ Compliance Dashboard ΓÇ║ should allow status update and view document in checklist (1.2m)
+  x  2 [chromium] ΓÇ║ e2e\dashboard.spec.ts:5:7 ΓÇ║ Dashboard E2E ΓÇ║ Executive Dashboard renders with metric sections (1.2m)
+  x  3 [chromium] ΓÇ║ e2e\dashboard.spec.ts:18:7 ΓÇ║ Dashboard E2E ΓÇ║ Funnel widget updates without page reload (1.2m)
+  x  5 [chromium] ΓÇ║ e2e\dashboard.spec.ts:37:7 ΓÇ║ Dashboard E2E ΓÇ║ Branch Manager sends branchId in API request (1.2m)
+
+
+  1) [chromium] ΓÇ║ e2e\compliance.spec.ts:10:7 ΓÇ║ Compliance Dashboard ΓÇ║ should display upcoming expirations and allow navigation to checklist 
+
+    Test timeout of 60000ms exceeded while running "beforeEach" hook.
+
+      3 |
+      4 | test.describe('Compliance Dashboard', () => {
+    > 5 |   test.beforeEach(async ({ page }) => {
+        |        ^
+      6 |     // Assuming loginAsRole handles setting the session with COMPLIANCE_OFFICER role
+      7 |     await loginAsRole(page, 'COMPLIANCE_OFFICER');
+      8 |   });
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\compliance.spec.ts:5:8
+
+    Error: page.waitForURL: Test timeout of 60000ms exceeded.
+    =========================== logs ===========================
+    waiting for navigation until "load"
+    ============================================================
+
+       at helpers\auth.ts:38
+
+      36 |   if (page.url().includes('/auth/signin')) {
+      37 |     await page.click('button:has-text("Sign in with Keycloak")');
+    > 38 |     await page.waitForURL(/.*(8180|keycloak).*/, { timeout: 30000 });
+         |                ^
+      39 |   }
+      40 |
+      41 |   await page.waitForSelector('#username', { timeout: 30000 });
+        at loginAsRole (C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\helpers\auth.ts:38:16)
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\compliance.spec.ts:7:5
+
+    Error Context: test-results\compliance-Compliance-Dash-9d396-low-navigation-to-checklist-chromium\error-context.md
+
+  2) [chromium] ΓÇ║ e2e\compliance.spec.ts:32:7 ΓÇ║ Compliance Dashboard ΓÇ║ should allow status update and view document in checklist 
+
+    Test timeout of 60000ms exceeded while running "beforeEach" hook.
+
+      3 |
+      4 | test.describe('Compliance Dashboard', () => {
+    > 5 |   test.beforeEach(async ({ page }) => {
+        |        ^
+      6 |     // Assuming loginAsRole handles setting the session with COMPLIANCE_OFFICER role
+      7 |     await loginAsRole(page, 'COMPLIANCE_OFFICER');
+      8 |   });
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\compliance.spec.ts:5:8
+
+    Error: page.waitForURL: Test timeout of 60000ms exceeded.
+    =========================== logs ===========================
+    waiting for navigation until "load"
+    ============================================================
+
+       at helpers\auth.ts:38
+
+      36 |   if (page.url().includes('/auth/signin')) {
+      37 |     await page.click('button:has-text("Sign in with Keycloak")');
+    > 38 |     await page.waitForURL(/.*(8180|keycloak).*/, { timeout: 30000 });
+         |                ^
+      39 |   }
+      40 |
+      41 |   await page.waitForSelector('#username', { timeout: 30000 });
+        at loginAsRole (C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\helpers\auth.ts:38:16)
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\compliance.spec.ts:7:5
+
+    Error Context: test-results\compliance-Compliance-Dash-ca424--view-document-in-checklist-chromium\error-context.md
+
+  3) [chromium] ΓÇ║ e2e\dashboard.spec.ts:5:7 ΓÇ║ Dashboard E2E ΓÇ║ Executive Dashboard renders with metric sections 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.waitForURL: Test timeout of 60000ms exceeded.
+    =========================== logs ===========================
+    waiting for navigation until "load"
+    ============================================================
+
+       at helpers\auth.ts:38
+
+      36 |   if (page.url().includes('/auth/signin')) {
+      37 |     await page.click('button:has-text("Sign in with Keycloak")');
+    > 38 |     await page.waitForURL(/.*(8180|keycloak).*/, { timeout: 30000 });
+         |                ^
+      39 |   }
+      40 |
+      41 |   await page.waitForSelector('#username', { timeout: 30000 });
+        at loginAsRole (C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\helpers\auth.ts:38:16)
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\dashboard.spec.ts:6:5
+
+    Error Context: test-results\dashboard-Dashboard-E2E-Ex-21270-enders-with-metric-sections-chromium\error-context.md
+
+  4) [chromium] ΓÇ║ e2e\dashboard.spec.ts:18:7 ΓÇ║ Dashboard E2E ΓÇ║ Funnel widget updates without page reload 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.waitForURL: Test timeout of 60000ms exceeded.
+    =========================== logs ===========================
+    waiting for navigation until "load"
+    ============================================================
+
+       at helpers\auth.ts:38
+
+      36 |   if (page.url().includes('/auth/signin')) {
+      37 |     await page.click('button:has-text("Sign in with Keycloak")');
+    > 38 |     await page.waitForURL(/.*(8180|keycloak).*/, { timeout: 30000 });
+         |                ^
+      39 |   }
+      40 |
+      41 |   await page.waitForSelector('#username', { timeout: 30000 });
+        at loginAsRole (C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\helpers\auth.ts:38:16)
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\dashboard.spec.ts:19:5
+
+    Error Context: test-results\dashboard-Dashboard-E2E-Fu-82915-updates-without-page-reload-chromium\error-context.md
+
+  5) [chromium] ΓÇ║ e2e\dashboard.spec.ts:37:7 ΓÇ║ Dashboard E2E ΓÇ║ Branch Manager sends branchId in API request 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.waitForURL: Test timeout of 60000ms exceeded.
+    =========================== logs ===========================
+    waiting for navigation until "load"
+    ============================================================
+
+       at helpers\auth.ts:38
+
+      36 |   if (page.url().includes('/auth/signin')) {
+      37 |     await page.click('button:has-text("Sign in with Keycloak")');
+    > 38 |     await page.waitForURL(/.*(8180|keycloak).*/, { timeout: 30000 });
+         |                ^
+      39 |   }
+      40 |
+      41 |   await page.waitForSelector('#username', { timeout: 30000 });
+        at loginAsRole (C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\helpers\auth.ts:38:16)
+        at C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\frontend\e2e\dashboard.spec.ts:38:5
+
+    Error Context: test-results\dashboard-Dashboard-E2E-Br-46edb-nds-branchId-in-API-request-chromium\error-context.md
+
+  5 failed
+    [chromium] ΓÇ║ e2e\compliance.spec.ts:10:7 ΓÇ║ Compliance Dashboard ΓÇ║ should display upcoming expirations and allow navigation to checklist 
+    [chromium] ΓÇ║ e2e\compliance.spec.ts:32:7 ΓÇ║ Compliance Dashboard ΓÇ║ should allow status update and view document in checklist 
+    [chromium] ΓÇ║ e2e\dashboard.spec.ts:5:7 ΓÇ║ Dashboard E2E ΓÇ║ Executive Dashboard renders with metric sections 
+    [chromium] ΓÇ║ e2e\dashboard.spec.ts:18:7 ΓÇ║ Dashboard E2E ΓÇ║ Funnel widget updates without page reload 
+    [chromium] ΓÇ║ e2e\dashboard.spec.ts:37:7 ΓÇ║ Dashboard E2E ΓÇ║ Branch Manager sends branchId in API request 

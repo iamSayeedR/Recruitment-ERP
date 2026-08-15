@@ -1,0 +1,85 @@
+{
+  "cookies": [
+    {
+      "name": "AUTH_SESSION_ID",
+      "value": "e487e4a7-b3c8-4190-be02-2a77120ed06e",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "AUTH_SESSION_ID_LEGACY",
+      "value": "e487e4a7-b3c8-4190-be02-2a77120ed06e",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "KEYCLOAK_IDENTITY",
+      "value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkZGRjNGE0MC1kNjQzLTRhOGUtODZiNC05ODNhZTFiNmZiYjQifQ.eyJleHAiOjE3ODY0NzMyMzYsImlhdCI6MTc4NjQzNzIzNiwianRpIjoiNzRhOTM1YmYtZDNiYy00ODcwLWFiZTMtZGY5MjBjZjY4MDk0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9yZWNydWl0bWVudC1lcnAiLCJzdWIiOiIzYzA2ODJmYy1hMWQ4LTQwNGYtOGYyMi1kNjUyNjE4ODA4NTEiLCJ0eXAiOiJTZXJpYWxpemVkLUlEIiwic2lkIjoiZTQ4N2U0YTctYjNjOC00MTkwLWJlMDItMmE3NzEyMGVkMDZlIiwic3RhdGVfY2hlY2tlciI6IjNQRjctNlQwa01RckZZdzFFV1U4ckxHQWVBN0l4R0JETmY1QWhRVGJOZWsifQ.hB7AAc8ZJYjklAGNwJhRKjb2URBhokOiEi-uVPIC4W4afZKFxnQuQi-xh7mMYftoZJdKZFPSGzx5-rWZX1WE7A",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "KEYCLOAK_IDENTITY_LEGACY",
+      "value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkZGRjNGE0MC1kNjQzLTRhOGUtODZiNC05ODNhZTFiNmZiYjQifQ.eyJleHAiOjE3ODY0NzMyMzYsImlhdCI6MTc4NjQzNzIzNiwianRpIjoiNzRhOTM1YmYtZDNiYy00ODcwLWFiZTMtZGY5MjBjZjY4MDk0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9yZWNydWl0bWVudC1lcnAiLCJzdWIiOiIzYzA2ODJmYy1hMWQ4LTQwNGYtOGYyMi1kNjUyNjE4ODA4NTEiLCJ0eXAiOiJTZXJpYWxpemVkLUlEIiwic2lkIjoiZTQ4N2U0YTctYjNjOC00MTkwLWJlMDItMmE3NzEyMGVkMDZlIiwic3RhdGVfY2hlY2tlciI6IjNQRjctNlQwa01RckZZdzFFV1U4ckxHQWVBN0l4R0JETmY1QWhRVGJOZWsifQ.hB7AAc8ZJYjklAGNwJhRKjb2URBhokOiEi-uVPIC4W4afZKFxnQuQi-xh7mMYftoZJdKZFPSGzx5-rWZX1WE7A",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "KEYCLOAK_SESSION",
+      "value": "\"recruitment-erp/3c0682fc-a1d8-404f-8f22-d65261880851/e487e4a7-b3c8-4190-be02-2a77120ed06e\"",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": 1786473239.638928,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "KEYCLOAK_SESSION_LEGACY",
+      "value": "\"recruitment-erp/3c0682fc-a1d8-404f-8f22-d65261880851/e487e4a7-b3c8-4190-be02-2a77120ed06e\"",
+      "domain": "localhost",
+      "path": "/realms/recruitment-erp/",
+      "expires": 1786473239.639005,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "authjs.csrf-token",
+      "value": "7fbe8f0521eb79edc42943b39fa77c03c9655a8665cfcff80097fe4ecebfc6be%7Cf6ccbdf962b0d7a8a8992f68a36a66b374fc591e5a0caaad03046f6b35d42e77",
+      "domain": "localhost",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "authjs.callback-url",
+      "value": "http%3A%2F%2Flocalhost%3A3000",
+      "domain": "localhost",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

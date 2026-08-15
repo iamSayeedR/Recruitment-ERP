@@ -1,0 +1,64 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* Variants */
+.variant-default {
+  background-color: var(--color-surface-active);
+  color: var(--color-text);
+}
+
+.variant-success {
+  background-color: #D1FAE5; /* A light emerald */
+  color: #065F46; /* A dark emerald */
+}
+
+.variant-warning {
+  background-color: #FEF3C7; /* A light amber */
+  color: #92400E; /* A dark amber */
+}
+
+.variant-error {
+  background-color: #FEE2E2; /* A light red */
+  color: #991B1B; /* A dark red */
+}
+
+.variant-info {
+  background-color: #DBEAFE; /* A light blue */
+  color: #1E40AF; /* A dark blue */
+}
+
+.variant-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+/* Sizes */
+.size-sm {
+  padding-block: 2px;
+  padding-inline: var(--space-2);
+  font-size: 10px;
+  gap: var(--space-1);
+}
+
+.size-md {
+  padding-block: var(--space-1);
+  padding-inline: var(--space-3);
+  font-size: var(--font-size-xs);
+  gap: var(--space-1);
+}
+
+/* Dot */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
