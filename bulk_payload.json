@@ -1,0 +1,40 @@
+{
+  "candidates": [
+    {
+      "firstName": "Fatima",
+      "lastName": "Al-Zahra",
+      "email": "fatima.alzahra@example.com",
+      "phone": "+971 50 123 4567",
+      "location": "Dubai",
+      "experienceYears": 8,
+      "skills": "Project Management;Agile;Scrum"
+    },
+    {
+      "firstName": "Carlos",
+      "lastName": "Mendoza",
+      "email": "carlos.mendoza@example.com",
+      "phone": "+63 917 555 0199",
+      "location": "Manila",
+      "experienceYears": 4,
+      "skills": "React;TypeScript;Node.js"
+    },
+    {
+      "firstName": "Vikram",
+      "lastName": "Patel",
+      "email": "vikram.patel@example.com",
+      "phone": "+91 98123 45678",
+      "location": "Mumbai",
+      "experienceYears": 9,
+      "skills": "Kubernetes;DevOps;AWS;CI/CD"
+    },
+    {
+      "firstName": "Amina",
+      "lastName": "Hassan",
+      "email": "amina.hassan@example.com",
+      "phone": "+20 10 9876 5432",
+      "location": "Cairo",
+      "experienceYears": 5,
+      "skills": "Python;Django;PostgreSQL"
+    }
+  ]
+}

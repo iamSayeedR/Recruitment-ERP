@@ -1,0 +1,70 @@
+# Java/Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.project
+.classpath
+.settings/
+*.sublime-workspace
+
+# Node.js
+node_modules/
+.next/
+dist/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+# (Do not ignore .env.example)
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.docker/
+docker-compose.override.yml
+# (Do not ignore docker-compose.yml)
+
+# Logs
+*.log
+logs/
+
+# Build outputs
+build/
+out/
+
+# Test coverage reports
+coverage/
+.nyc_output/
+jacoco.exec
+
+# Secrets
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.truststore

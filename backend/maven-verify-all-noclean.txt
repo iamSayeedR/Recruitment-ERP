@@ -1,0 +1,477 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] iam-service                                                        [jar]
+[INFO] requisition-service                                                [jar]
+[INFO] candidate-service                                                  [jar]
+[INFO] 
+[INFO] -------------------< com.recruitmenterp:iam-service >-------------------
+[INFO] Building iam-service 0.1.0-SNAPSHOT                                [1/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-java) @ iam-service ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.BanDuplicatePomDependencyVersions passed
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (prepare-agent) @ iam-service ---
+[INFO] argLine set to "-javaagent:C:\\Users\\Sayeed Rizwan\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\Sayeed Rizwan\\OneDrive\\Desktop\\recruitment-erp\\backend\\iam-service\\target\\jacoco.exec,excludes=**/*MapperImpl.class:**/*Application.class:**/dto/**:**/model/**"
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ iam-service ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ iam-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:testResources (default-testResources) @ iam-service ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:testCompile (default-testCompile) @ iam-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-java) @ iam-service ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.BanDuplicatePomDependencyVersions passed
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (prepare-agent) @ iam-service ---
+[INFO] argLine set to "-javaagent:C:\\Users\\Sayeed Rizwan\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\Sayeed Rizwan\\OneDrive\\Desktop\\recruitment-erp\\backend\\iam-service\\target\\jacoco.exec,excludes=**/*MapperImpl.class:**/*Application.class:**/dto/**:**/model/**"
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ iam-service ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ iam-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:testResources (default-testResources) @ iam-service ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:testCompile (default-testCompile) @ iam-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.5.1:test (default-test) @ iam-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.recruitmenterp.iam.application.service.BranchServiceTest
+2026-08-10 14:05:38.399 [main] INFO  c.r.i.a.service.BranchService - Created branch with id null
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.770 s -- in com.recruitmenterp.iam.application.service.BranchServiceTest
+[INFO] Running com.recruitmenterp.iam.application.service.ClientServiceTest
+2026-08-10 14:05:39.071 [main] INFO  c.r.i.a.service.ClientService - Created client null for tenant tenant1
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.350 s -- in com.recruitmenterp.iam.application.service.ClientServiceTest
+[INFO] Running com.recruitmenterp.iam.application.service.TenantServiceTest
+2026-08-10 14:05:39.435 [main] INFO  c.r.i.a.service.TenantService - Deactivated tenant: a4aa6330-1469-488c-986e-26ffb6f7c189
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.317 s -- in com.recruitmenterp.iam.application.service.TenantServiceTest
+[INFO] Running com.recruitmenterp.iam.application.service.UserServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.658 s -- in com.recruitmenterp.iam.application.service.UserServiceTest
+[INFO] Running com.recruitmenterp.iam.security.RbacSecurityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s -- in com.recruitmenterp.iam.security.RbacSecurityTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.4.2:jar (default-jar) @ iam-service ---
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:3.3.5:repackage (repackage) @ iam-service ---
+[INFO] Replacing main artifact C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service\target\iam-service-0.1.0-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service\target\iam-service-0.1.0-SNAPSHOT.jar.original
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.5.1:integration-test (default) @ iam-service ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.recruitmenterp.iam.adapter.in.rest.TenantControllerIT
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.10 s -- in com.recruitmenterp.iam.adapter.in.rest.TenantControllerIT
+[INFO] Running com.recruitmenterp.iam.security.BranchControllerSecurityIT
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-08-10 14:05:57.839 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.recruitmenterp.iam.security.BranchControllerSecurityIT]: BranchControllerSecurityIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-10 14:05:58.597 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.recruitmenterp.iam.IamServiceApplication for test class com.recruitmenterp.iam.security.BranchControllerSecurityIT
+2026-08-10 14:06:00.419 [main] INFO  o.testcontainers.images.PullPolicy - Image pull policy will be performed by: DefaultPullPolicy()
+2026-08-10 14:06:00.474 [main] INFO  o.t.utility.ImageNameSubstitutor - Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2026-08-10 14:06:00.553 [main] INFO  o.testcontainers.DockerClientFactory - Testcontainers version: 1.20.4
+2026-08-10 14:06:03.175 [main] INFO  o.t.d.DockerClientProviderStrategy - Loaded org.testcontainers.dockerclient.NpipeSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+2026-08-10 14:06:05.356 [main] INFO  o.t.d.DockerClientProviderStrategy - Found Docker environment with local Npipe socket (npipe:////./pipe/docker_engine)
+2026-08-10 14:06:05.359 [main] INFO  o.testcontainers.DockerClientFactory - Docker host IP address is localhost
+2026-08-10 14:06:05.493 [main] INFO  o.testcontainers.DockerClientFactory - Connected to docker: 
+  Server Version: 28.5.1
+  API Version: 1.51
+  Operating System: Docker Desktop
+  Total Memory: 3786 MB
+  Labels: 
+    com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+2026-08-10 14:06:05.660 [main] INFO  tc.testcontainers/ryuk:0.11.0 - Creating container for image: testcontainers/ryuk:0.11.0
+2026-08-10 14:06:05.872 [main] INFO  o.t.utility.RegistryAuthLocator - Credential helper/store (docker-credential-wincred) does not have credentials for https://index.docker.io/v1/
+2026-08-10 14:06:06.547 [main] INFO  tc.testcontainers/ryuk:0.11.0 - Container testcontainers/ryuk:0.11.0 is starting: d9be2c143b80b9005aff0885f7048a390c3fdf4b8ff9781c198b236024fed28a
+2026-08-10 14:06:08.939 [main] INFO  tc.testcontainers/ryuk:0.11.0 - Container testcontainers/ryuk:0.11.0 started in PT3.2781873S
+2026-08-10 14:06:08.965 [main] INFO  o.t.utility.RyukResourceReaper - Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+2026-08-10 14:06:08.965 [main] INFO  o.testcontainers.DockerClientFactory - Checking the system...
+2026-08-10 14:06:08.967 [main] INFO  o.testcontainers.DockerClientFactory - ✔︎ Docker server version should be at least 1.6.0
+2026-08-10 14:06:08.968 [main] INFO  tc.postgres:16-alpine - Creating container for image: postgres:16-alpine
+2026-08-10 14:06:09.239 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine is starting: b8f58e87bfa58b1133b9decab792398e75f3030eae250ba1ff64f9c06be6e26a
+2026-08-10 14:06:14.429 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine started in PT5.4609471S
+2026-08-10 14:06:14.431 [main] INFO  tc.postgres:16-alpine - Container is started (JDBC URL: jdbc:postgresql://localhost:49210/recruitment_erp?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-10 14:06:18.073 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-10 14:06:18.159 [main] INFO  c.r.i.s.BranchControllerSecurityIT - Starting BranchControllerSecurityIT using Java 21.0.6 with PID 60116 (started by Sayeed Rizwan in C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service)
+2026-08-10 14:06:18.160 [main] INFO  c.r.i.s.BranchControllerSecurityIT - No active profile set, falling back to 1 default profile: "default"
+2026-08-10 14:06:26.954 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:06:26.961 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-10 14:06:27.396 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 413 ms. Found 5 JPA repository interfaces.
+2026-08-10 14:06:27.459 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:06:27.462 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-10 14:06:27.537 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.BranchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:06:27.538 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientContractRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:06:27.538 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:06:27.539 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:06:27.539 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.UserProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:06:27.539 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2026-08-10 14:06:28.435 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-08-10 14:06:28.490 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-08-10 14:06:37.295 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:49210/recruitment_erp (PostgreSQL 16.14)
+2026-08-10 14:06:37.574 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2026-08-10 14:06:37.589 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.112s)
+2026-08-10 14:06:37.663 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2026-08-10 14:06:37.850 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2026-08-10 14:06:37.889 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create iam tables"
+2026-08-10 14:06:38.039 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.092s)
+2026-08-10 14:06:38.456 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-10 14:06:38.809 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-08-10 14:06:39.025 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-10 14:06:39.761 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-10 14:06:39.888 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-10 14:06:40.283 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4f24edf9
+2026-08-10 14:06:40.288 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-10 14:06:40.594 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-10 14:06:44.398 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-10 14:06:45.326 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-10 14:07:01.431 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-10 14:07:06.343 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-08-10 14:07:06.344 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-08-10 14:07:06.346 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2026-08-10 14:07:09.090 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-08-10 14:07:09.091 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'iam-service.errorChannel' has 1 subscriber(s).
+2026-08-10 14:07:09.092 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - started bean '_org.springframework.integration.errorLogger'
+2026-08-10 14:07:09.221 [main] INFO  c.r.i.s.BranchControllerSecurityIT - Started BranchControllerSecurityIT in 54.553 seconds (process running for 85.243)
+2026-08-10 14:07:14.170 [main] WARN  c.r.c.e.GlobalExceptionHandler - Access denied: Access Denied
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 85.96 s -- in com.recruitmenterp.iam.security.BranchControllerSecurityIT
+[INFO] Running com.recruitmenterp.iam.security.ClientControllerSecurityIT
+2026-08-10 14:07:23.294 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.recruitmenterp.iam.security.ClientControllerSecurityIT]: ClientControllerSecurityIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-10 14:07:23.340 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.recruitmenterp.iam.IamServiceApplication for test class com.recruitmenterp.iam.security.ClientControllerSecurityIT
+2026-08-10 14:07:23.357 [main] INFO  tc.postgres:16-alpine - Creating container for image: postgres:16-alpine
+2026-08-10 14:07:24.303 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine is starting: e7630443a5766b58ce74e804c6762d8d6f694f48744229a0f86afb3a1ce0c87a
+2026-08-10 14:07:52.853 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine started in PT29.4956214S
+2026-08-10 14:07:52.860 [main] INFO  tc.postgres:16-alpine - Container is started (JDBC URL: jdbc:postgresql://localhost:51760/recruitment_erp?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-10 14:07:56.521 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-10 14:07:56.817 [main] INFO  c.r.i.s.ClientControllerSecurityIT - Starting ClientControllerSecurityIT using Java 21.0.6 with PID 60116 (started by Sayeed Rizwan in C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service)
+2026-08-10 14:07:56.825 [main] INFO  c.r.i.s.ClientControllerSecurityIT - No active profile set, falling back to 1 default profile: "default"
+2026-08-10 14:08:09.532 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:08:09.535 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-10 14:08:09.658 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 118 ms. Found 5 JPA repository interfaces.
+2026-08-10 14:08:09.675 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:08:09.675 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-10 14:08:09.710 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.BranchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:08:09.711 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientContractRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:08:09.712 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:08:09.713 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:08:09.716 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.UserProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:08:09.716 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 0 Redis repository interfaces.
+2026-08-10 14:08:09.889 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-08-10 14:08:09.892 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-08-10 14:08:16.751 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:51760/recruitment_erp (PostgreSQL 16.14)
+2026-08-10 14:08:16.824 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2026-08-10 14:08:16.827 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.025s)
+2026-08-10 14:08:16.894 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2026-08-10 14:08:17.074 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2026-08-10 14:08:17.094 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create iam tables"
+2026-08-10 14:08:17.238 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.103s)
+2026-08-10 14:08:17.421 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-10 14:08:17.434 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-10 14:08:17.490 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-10 14:08:17.492 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-08-10 14:08:17.570 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@39f2b4a8
+2026-08-10 14:08:17.571 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-08-10 14:08:17.615 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-10 14:08:18.406 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-10 14:08:18.525 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-10 14:08:23.172 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-10 14:08:27.535 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-08-10 14:08:27.536 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-08-10 14:08:27.538 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2026-08-10 14:08:27.761 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-08-10 14:08:27.762 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'iam-service.errorChannel' has 1 subscriber(s).
+2026-08-10 14:08:27.764 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - started bean '_org.springframework.integration.errorLogger'
+2026-08-10 14:08:27.783 [main] INFO  c.r.i.s.ClientControllerSecurityIT - Started ClientControllerSecurityIT in 33.773 seconds (process running for 163.805)
+2026-08-10 14:08:27.936 [main] WARN  c.r.c.e.GlobalExceptionHandler - Access denied: Access Denied
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.77 s -- in com.recruitmenterp.iam.security.ClientControllerSecurityIT
+[INFO] Running com.recruitmenterp.iam.security.ProfileControllerSecurityIT
+2026-08-10 14:08:38.128 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.recruitmenterp.iam.security.ProfileControllerSecurityIT]: ProfileControllerSecurityIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-10 14:08:38.196 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.recruitmenterp.iam.IamServiceApplication for test class com.recruitmenterp.iam.security.ProfileControllerSecurityIT
+2026-08-10 14:08:38.227 [main] INFO  tc.postgres:16-alpine - Creating container for image: postgres:16-alpine
+2026-08-10 14:08:40.027 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine is starting: e059c4b0e501ab66314263796bf289c7ccfd8f33b933faea09528683f789fc77
+2026-08-10 14:09:08.487 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine started in PT30.2603634S
+2026-08-10 14:09:08.491 [main] INFO  tc.postgres:16-alpine - Container is started (JDBC URL: jdbc:postgresql://localhost:51457/recruitment_erp?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-10 14:09:08.887 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-10 14:09:09.175 [main] INFO  c.r.i.s.ProfileControllerSecurityIT - Starting ProfileControllerSecurityIT using Java 21.0.6 with PID 60116 (started by Sayeed Rizwan in C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service)
+2026-08-10 14:09:09.176 [main] INFO  c.r.i.s.ProfileControllerSecurityIT - No active profile set, falling back to 1 default profile: "default"
+2026-08-10 14:09:17.049 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:09:17.050 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-10 14:09:17.170 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 117 ms. Found 5 JPA repository interfaces.
+2026-08-10 14:09:17.185 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:09:17.186 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-10 14:09:17.209 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.BranchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:09:17.210 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientContractRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:09:17.210 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:09:17.211 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:09:17.213 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.UserProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:09:17.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2026-08-10 14:09:17.390 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-08-10 14:09:17.392 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-08-10 14:09:20.996 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:51457/recruitment_erp (PostgreSQL 16.14)
+2026-08-10 14:09:21.087 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2026-08-10 14:09:21.091 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.022s)
+2026-08-10 14:09:21.157 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2026-08-10 14:09:21.272 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2026-08-10 14:09:21.436 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create iam tables"
+2026-08-10 14:09:21.556 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.094s)
+2026-08-10 14:09:21.698 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-10 14:09:21.704 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-10 14:09:21.780 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-10 14:09:21.784 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-08-10 14:09:21.882 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@5461d430
+2026-08-10 14:09:21.883 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-08-10 14:09:21.909 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-10 14:09:22.667 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-10 14:09:22.759 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-10 14:09:25.019 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-10 14:09:27.825 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-08-10 14:09:27.826 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-08-10 14:09:27.828 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
+2026-08-10 14:09:29.411 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-08-10 14:09:29.413 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'iam-service.errorChannel' has 1 subscriber(s).
+2026-08-10 14:09:29.414 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - started bean '_org.springframework.integration.errorLogger'
+2026-08-10 14:09:29.443 [main] INFO  c.r.i.s.ProfileControllerSecurityIT - Started ProfileControllerSecurityIT in 20.858 seconds (process running for 225.464)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 58.35 s -- in com.recruitmenterp.iam.security.ProfileControllerSecurityIT
+[INFO] Running com.recruitmenterp.iam.security.UserControllerSecurityIT
+2026-08-10 14:09:36.098 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.recruitmenterp.iam.security.UserControllerSecurityIT]: UserControllerSecurityIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-10 14:09:36.118 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.recruitmenterp.iam.IamServiceApplication for test class com.recruitmenterp.iam.security.UserControllerSecurityIT
+2026-08-10 14:09:36.148 [main] INFO  tc.postgres:16-alpine - Creating container for image: postgres:16-alpine
+2026-08-10 14:09:36.981 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine is starting: 44c3389f0e35d641fb23e909f72767c0631ca5e4a5f909b610f88cd062ca0ee4
+2026-08-10 14:09:59.524 [main] INFO  tc.postgres:16-alpine - Container postgres:16-alpine started in PT23.3759441S
+2026-08-10 14:09:59.528 [main] INFO  tc.postgres:16-alpine - Container is started (JDBC URL: jdbc:postgresql://localhost:63038/recruitment_erp?loggerLevel=OFF)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-10 14:10:00.413 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/org/json/json/20240303/json-20240303.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/Sayeed%20Rizwan/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2026-08-10 14:10:01.126 [main] INFO  c.r.i.s.UserControllerSecurityIT - Starting UserControllerSecurityIT using Java 21.0.6 with PID 60116 (started by Sayeed Rizwan in C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service)
+2026-08-10 14:10:01.127 [main] INFO  c.r.i.s.UserControllerSecurityIT - No active profile set, falling back to 1 default profile: "default"
+2026-08-10 14:10:12.365 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:10:12.367 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-10 14:10:12.508 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 131 ms. Found 5 JPA repository interfaces.
+2026-08-10 14:10:12.522 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-10 14:10:12.524 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-10 14:10:12.554 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.BranchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:10:12.555 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientContractRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:10:12.555 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:10:12.556 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:10:12.556 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.UserProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-10 14:10:12.556 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2026-08-10 14:10:12.847 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-08-10 14:10:12.851 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-08-10 14:10:20.291 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:63038/recruitment_erp (PostgreSQL 16.14)
+2026-08-10 14:10:21.872 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+2026-08-10 14:10:21.875 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.547s)
+2026-08-10 14:10:22.165 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+2026-08-10 14:10:22.399 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": << Empty Schema >>
+2026-08-10 14:10:22.441 [main] INFO  o.f.core.internal.command.DbMigrate - Migrating schema "public" to version "1 - create iam tables"
+2026-08-10 14:10:22.621 [main] INFO  o.f.core.internal.command.DbMigrate - Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.125s)
+2026-08-10 14:10:22.903 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-10 14:10:22.931 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-10 14:10:23.135 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-10 14:10:23.147 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2026-08-10 14:10:23.269 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@3c7a132a
+2026-08-10 14:10:23.270 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2026-08-10 14:10:23.320 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-10 14:10:25.652 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-10 14:10:25.826 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-10 14:10:28.119 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-10 14:10:31.925 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-08-10 14:10:31.925 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-08-10 14:10:31.931 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 6 ms
+2026-08-10 14:10:32.079 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2026-08-10 14:10:32.079 [main] INFO  o.s.i.c.PublishSubscribeChannel - Channel 'iam-service.errorChannel' has 1 subscriber(s).
+2026-08-10 14:10:32.079 [main] INFO  o.s.i.endpoint.EventDrivenConsumer - started bean '_org.springframework.integration.errorLogger'
+2026-08-10 14:10:32.089 [main] INFO  c.r.i.s.UserControllerSecurityIT - Started UserControllerSecurityIT in 32.497 seconds (process running for 288.11)
+2026-08-10 14:10:36.472 [main] WARN  c.r.c.e.GlobalExceptionHandler - Access denied: Access Denied
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 64.49 s -- in com.recruitmenterp.iam.security.UserControllerSecurityIT
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-failsafe-plugin:3.5.1:verify (default) @ iam-service ---
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:report (report) @ iam-service ---
+[INFO] Loading execution data file C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service\target\jacoco.exec
+[INFO] Analyzed bundle 'iam-service' with 8 classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:check (check) @ iam-service ---
+[INFO] Loading execution data file C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\iam-service\target\jacoco.exec
+[INFO] Analyzed bundle 'iam-service' with 8 classes
+[INFO] All coverage checks have been met.
+[INFO] 
+[INFO] ---------------< com.recruitmenterp:requisition-service >---------------
+[INFO] Building requisition-service 0.1.0-SNAPSHOT                        [2/3]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.5.0:enforce (enforce-java) @ requisition-service ---
+[INFO] Rule 1: org.apache.maven.enforcer.rules.BanDuplicatePomDependencyVersions passed
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.12:prepare-agent (prepare-agent) @ requisition-service ---
+[INFO] argLine set to "-javaagent:C:\\Users\\Sayeed Rizwan\\.m2\\repository\\org\\jacoco\\org.jacoco.agent\\0.8.12\\org.jacoco.agent-0.8.12-runtime.jar=destfile=C:\\Users\\Sayeed Rizwan\\OneDrive\\Desktop\\recruitment-erp\\backend\\requisition-service\\target\\jacoco.exec,excludes=**/*MapperImpl.class:**/*Application.class:**/dto/**:**/model/**"
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ requisition-service ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:compile (default-compile) @ requisition-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:testResources (default-testResources) @ requisition-service ---
+[INFO] Copying 2 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.13.0:testCompile (default-testCompile) @ requisition-service ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 5 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java: C:\Users\Sayeed Rizwan\OneDrive\Desktop\recruitment-erp\backend\requisition-service\src\test\java\com\recruitmenterp\requisition\RequisitionServiceTest.java uses unchecked or unsafe operations.
+[INFO] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[121,57] constructor RequisitionResponse in record com.recruitmenterp.requisition.application.dto.RequisitionResponse cannot be applied to given types;
+  required: java.util.UUID,java.util.UUID,java.util.UUID,java.util.UUID,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.JobCategory,java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.RequisitionStatus,com.recruitmenterp.requisition.domain.model.RequisitionPriority,java.lang.String,java.time.Instant,java.time.Instant,java.time.Instant,java.lang.String,java.lang.String
+  found:    java.util.UUID,<nulltype>,<nulltype>,java.lang.String,<nulltype>,<nulltype>,<nulltype>,int,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[134,57] constructor RequisitionResponse in record com.recruitmenterp.requisition.application.dto.RequisitionResponse cannot be applied to given types;
+  required: java.util.UUID,java.util.UUID,java.util.UUID,java.util.UUID,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.JobCategory,java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.RequisitionStatus,com.recruitmenterp.requisition.domain.model.RequisitionPriority,java.lang.String,java.time.Instant,java.time.Instant,java.time.Instant,java.lang.String,java.lang.String
+  found:    java.util.UUID,<nulltype>,<nulltype>,java.lang.String,<nulltype>,<nulltype>,<nulltype>,int,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>
+  reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[136,9] cannot find symbol
+  symbol:   class UpdateRequisitionRequest
+  location: class com.recruitmenterp.requisition.RequisitionServiceTest
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[136,44] cannot find symbol
+  symbol:   class UpdateRequisitionRequest
+  location: class com.recruitmenterp.requisition.RequisitionServiceTest
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for iam-service 0.1.0-SNAPSHOT:
+[INFO] 
+[INFO] iam-service ........................................ SUCCESS [05:34 min]
+[INFO] requisition-service ................................ FAILURE [  6.380 s]
+[INFO] candidate-service .................................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:41 min
+[INFO] Finished at: 2026-08-10T14:10:57+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project requisition-service: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[121,57] constructor RequisitionResponse in record com.recruitmenterp.requisition.application.dto.RequisitionResponse cannot be applied to given types;
+[ERROR]   required: java.util.UUID,java.util.UUID,java.util.UUID,java.util.UUID,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.JobCategory,java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.RequisitionStatus,com.recruitmenterp.requisition.domain.model.RequisitionPriority,java.lang.String,java.time.Instant,java.time.Instant,java.time.Instant,java.lang.String,java.lang.String
+[ERROR]   found:    java.util.UUID,<nulltype>,<nulltype>,java.lang.String,<nulltype>,<nulltype>,<nulltype>,int,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[134,57] constructor RequisitionResponse in record com.recruitmenterp.requisition.application.dto.RequisitionResponse cannot be applied to given types;
+[ERROR]   required: java.util.UUID,java.util.UUID,java.util.UUID,java.util.UUID,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.JobCategory,java.lang.String,int,int,java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.String,com.recruitmenterp.requisition.domain.model.RequisitionStatus,com.recruitmenterp.requisition.domain.model.RequisitionPriority,java.lang.String,java.time.Instant,java.time.Instant,java.time.Instant,java.lang.String,java.lang.String
+[ERROR]   found:    java.util.UUID,<nulltype>,<nulltype>,java.lang.String,<nulltype>,<nulltype>,<nulltype>,int,int,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>,<nulltype>
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[136,9] cannot find symbol
+[ERROR]   symbol:   class UpdateRequisitionRequest
+[ERROR]   location: class com.recruitmenterp.requisition.RequisitionServiceTest
+[ERROR] /C:/Users/Sayeed Rizwan/OneDrive/Desktop/recruitment-erp/backend/requisition-service/src/test/java/com/recruitmenterp/requisition/RequisitionServiceTest.java:[136,44] cannot find symbol
+[ERROR]   symbol:   class UpdateRequisitionRequest
+[ERROR]   location: class com.recruitmenterp.requisition.RequisitionServiceTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :requisition-service

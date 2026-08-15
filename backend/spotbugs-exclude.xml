@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <!-- Exclude Lombok-generated code -->
+    <Match>
+        <Class name="~.*Builder.*"/>
+    </Match>
+    <Match>
+        <Method name="equals"/>
+    </Match>
+    <Match>
+        <Method name="hashCode"/>
+    </Match>
+    <Match>
+        <Method name="toString"/>
+    </Match>
+    
+    <!-- Exclude test classes from certain checks -->
+    <Match>
+        <Class name="~.*Test"/>
+    </Match>
+    <Match>
+        <Class name="~.*IT"/>
+    </Match>
+
+    <!-- Exclude MapStruct-generated mappers -->
+    <Match>
+        <Class name="~.*MapperImpl"/>
+    </Match>
+
+    <!-- Exclude Spring configuration classes from certain serialization checks -->
+    <Match>
+        <Class name="~.*Config"/>
+        <Bug pattern="SE_BAD_FIELD"/>
+    </Match>
+</FindBugsFilter>

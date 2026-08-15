@@ -1,0 +1,182 @@
+/* VANTUS Light Enterprise ERP Theme for Keycloak 25 Login */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html,
+body,
+body.login-pf,
+.login-pf,
+.login-pf-page,
+#kc-container,
+#kc-container-wrapper {
+  background: #F4F6F9 !important;
+  background-image: none !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  color: #1E293B !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+}
+
+/* Header Text Top */
+#kc-header,
+#kc-header-wrapper {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1E293B !important;
+  text-transform: none !important;
+  letter-spacing: -0.02em !important;
+  text-align: center !important;
+  padding-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+#kc-header-wrapper::before {
+  content: 'ERP';
+  display: block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  background: #38BDF8;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.1rem;
+  border-radius: 0.75rem;
+  margin: 0 auto 0.75rem auto;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+  text-align: center;
+}
+
+/* Card Box */
+.card-pf,
+.login-pf-page .card-pf,
+#kc-form-card {
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  border-top: 1px solid #E2E8F0 !important; /* Remove heavy blue top border */
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.02) !important;
+  max-width: 440px !important;
+  margin: 0 auto 2rem auto !important;
+  padding: 2.5rem !important;
+}
+
+/* Page Title ("Sign in to your account") */
+#kc-page-title,
+.login-pf-page .card-pf h1 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #1E293B !important;
+  text-align: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.75rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Form Labels */
+label,
+.control-label,
+.pf-c-form__label {
+  font-size: 0.825rem !important;
+  font-weight: 600 !important;
+  color: #1E293B !important;
+  margin-bottom: 0.45rem !important;
+  display: block !important;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+.form-control,
+.pf-c-form-control {
+  width: 100% !important;
+  padding: 0.7rem 0.9rem !important;
+  background: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 0.5rem !important;
+  color: #1E293B !important;
+  font-size: 0.9rem !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.15s ease !important;
+  height: auto !important;
+  box-shadow: none !important;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+.form-control:focus,
+.pf-c-form-control:focus {
+  border-color: #38BDF8 !important;
+  background: #FFFFFF !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Primary Sign In Button */
+input[type="submit"],
+button[type="submit"],
+.btn-primary,
+#kc-login {
+  width: 100% !important;
+  padding: 0.8rem !important;
+  background: #38BDF8 !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 6px rgba(56, 189, 248, 0.3) !important;
+  transition: all 0.15s ease !important;
+  margin-top: 1rem !important;
+  text-shadow: none !important;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+.btn-primary:hover,
+#kc-login:hover {
+  background: #0284C7 !important;
+}
+
+/* Alert Boxes */
+.alert-error,
+.alert-warning,
+.alert-success,
+.pf-c-alert {
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+  font-size: 0.85rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.alert-error {
+  background: #FEE2E2 !important;
+  border: 1px solid #EF4444 !important;
+  color: #991B1B !important;
+}
+
+/* Footer / Links */
+#kc-form-options,
+#kc-registration,
+#kc-info {
+  margin-top: 1.5rem !important;
+  font-size: 0.85rem !important;
+  color: #64748B !important;
+}
+
+#kc-registration a,
+#kc-info a,
+#kc-form-options a {
+  color: #38BDF8 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+#kc-registration a:hover,
+#kc-info a:hover,
+#kc-form-options a:hover {
+  text-decoration: underline !important;
+}

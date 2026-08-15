@@ -1,0 +1,7 @@
+﻿server:
+  port: 8083
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/candidate_db
+    username: app_user
+    password: password

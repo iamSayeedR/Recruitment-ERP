@@ -1,0 +1,594 @@
+{
+  "id": "recruitment-erp",
+  "realm": "recruitment-erp",
+  "enabled": true,
+  "loginTheme": "recruitment-erp",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "accessTokenLifespan": 900,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "otpPolicyType": "totp",
+  "otpPolicyAlgorithm": "HmacSHA1",
+  "otpPolicyDigits": 6,
+  "otpPolicyPeriod": 30,
+  "otpPolicyInitialCounter": 0,
+  "otpPolicyLookAheadWindow": 1,
+  "roles": {
+    "realm": [
+      {
+        "name": "SUPER_ADMIN",
+        "description": "Platform-level administrator"
+      },
+      {
+        "name": "TENANT_ADMIN",
+        "description": "Tenant-level administrator"
+      },
+      {
+        "name": "BRANCH_MANAGER",
+        "description": "Branch-level manager"
+      },
+      {
+        "name": "RECRUITER",
+        "description": "Standard recruiter"
+      },
+      {
+        "name": "COMPLIANCE_OFFICER",
+        "description": "Compliance/document verification"
+      },
+      {
+        "name": "FINANCE_OFFICER",
+        "description": "Billing/finance"
+      },
+      {
+        "name": "CLIENT_USER",
+        "description": "Client portal user (employer)"
+      },
+      {
+        "name": "CANDIDATE",
+        "description": "Candidate portal user"
+      }
+    ]
+  },
+  "groups": [
+    {
+      "name": "staff-mfa-required",
+      "realmRoles": [
+        "SUPER_ADMIN",
+        "TENANT_ADMIN",
+        "BRANCH_MANAGER",
+        "RECRUITER",
+        "COMPLIANCE_OFFICER",
+        "FINANCE_OFFICER"
+      ]
+    },
+    {
+      "name": "external-no-mfa",
+      "realmRoles": [
+        "CLIENT_USER",
+        "CANDIDATE"
+      ]
+    }
+  ],
+  "authenticationFlows": [
+    {
+      "alias": "browser-with-conditional-otp",
+      "description": "Browser flow with conditional OTP for staff roles",
+      "providerId": "basic-flow",
+      "topLevel": true,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-cookie",
+          "authenticatorFlow": false,
+          "requirement": "ALTERNATIVE",
+          "priority": 10
+        },
+        {
+          "authenticator": "auth-spnego",
+          "authenticatorFlow": false,
+          "requirement": "DISABLED",
+          "priority": 20
+        },
+        {
+          "authenticatorFlow": true,
+          "requirement": "ALTERNATIVE",
+          "priority": 30,
+          "flowAlias": "browser-with-conditional-otp forms"
+        }
+      ]
+    },
+    {
+      "alias": "browser-with-conditional-otp forms",
+      "description": "Username/password and conditional OTP",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "auth-username-password-form",
+          "authenticatorFlow": false,
+          "requirement": "REQUIRED",
+          "priority": 10
+        },
+        {
+          "authenticatorFlow": true,
+          "requirement": "CONDITIONAL",
+          "priority": 20,
+          "flowAlias": "browser-with-conditional-otp Conditional OTP"
+        }
+      ]
+    },
+    {
+      "alias": "browser-with-conditional-otp Conditional OTP",
+      "description": "OTP required for staff roles only",
+      "providerId": "basic-flow",
+      "topLevel": false,
+      "builtIn": false,
+      "authenticationExecutions": [
+        {
+          "authenticator": "conditional-user-role",
+          "authenticatorFlow": false,
+          "requirement": "REQUIRED",
+          "priority": 10,
+          "authenticatorConfig": "staff-role-condition-super-admin"
+        },
+        {
+          "authenticator": "conditional-user-configured",
+          "authenticatorFlow": false,
+          "requirement": "REQUIRED",
+          "priority": 15
+        },
+        {
+          "authenticator": "auth-otp-form",
+          "authenticatorFlow": false,
+          "requirement": "REQUIRED",
+          "priority": 20
+        }
+      ]
+    }
+  ],
+  "authenticatorConfig": [
+    {
+      "alias": "staff-role-condition-super-admin",
+      "config": {
+        "conditionUserRole": "SUPER_ADMIN",
+        "negate": "false"
+      }
+    },
+    {
+      "alias": "staff-role-condition-tenant-admin",
+      "config": {
+        "conditionUserRole": "TENANT_ADMIN",
+        "negate": "false"
+      }
+    },
+    {
+      "alias": "staff-role-condition-branch-manager",
+      "config": {
+        "conditionUserRole": "BRANCH_MANAGER",
+        "negate": "false"
+      }
+    },
+    {
+      "alias": "staff-role-condition-recruiter",
+      "config": {
+        "conditionUserRole": "RECRUITER",
+        "negate": "false"
+      }
+    },
+    {
+      "alias": "staff-role-condition-compliance-officer",
+      "config": {
+        "conditionUserRole": "COMPLIANCE_OFFICER",
+        "negate": "false"
+      }
+    },
+    {
+      "alias": "staff-role-condition-finance-officer",
+      "config": {
+        "conditionUserRole": "FINANCE_OFFICER",
+        "negate": "false"
+      }
+    }
+  ],
+  "browserFlow": "browser-with-conditional-otp",
+  "clients": [
+    {
+      "clientId": "erp-backend",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "b5dbb13b-8217-45af-a83d-3a3f5507d4b4",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "protocolMappers": [
+        {
+          "name": "tenant_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant_id",
+            "claim.name": "tenant_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "branch_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "branch_id",
+            "claim.name": "branch_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "realm_roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "erp-frontend",
+      "enabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "protocolMappers": [
+        {
+          "name": "tenant_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant_id",
+            "claim.name": "tenant_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "branch_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "branch_id",
+            "claim.name": "branch_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "realm_roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "erp-mobile",
+      "enabled": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "redirectUris": [
+        "com.recruitmenterp.mobile:/callback"
+      ],
+      "protocolMappers": [
+        {
+          "name": "tenant_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "tenant_id",
+            "claim.name": "tenant_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "branch_id",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "branch_id",
+            "claim.name": "branch_id",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "multivalued": "false"
+          }
+        },
+        {
+          "name": "realm_roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "consentRequired": false,
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "superadmin@erp.dev",
+      "email": "superadmin@erp.dev",
+      "firstName": "Super",
+      "lastName": "Admin",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "SUPER_ADMIN"
+      ]
+    },
+    {
+      "username": "tenantadmin@acme.dev",
+      "email": "tenantadmin@acme.dev",
+      "firstName": "Tenant",
+      "lastName": "Admin",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-hq"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "TENANT_ADMIN"
+      ]
+    },
+    {
+      "username": "branchmanager@acme.dev",
+      "email": "branchmanager@acme.dev",
+      "firstName": "Branch",
+      "lastName": "Manager",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-dubai"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "BRANCH_MANAGER"
+      ]
+    },
+    {
+      "username": "recruiter@acme.dev",
+      "email": "recruiter@acme.dev",
+      "firstName": "Standard",
+      "lastName": "Recruiter",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-dubai"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "RECRUITER"
+      ]
+    },
+    {
+      "username": "compliance@acme.dev",
+      "email": "compliance@acme.dev",
+      "firstName": "Compliance",
+      "lastName": "Officer",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-hq"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "COMPLIANCE_OFFICER"
+      ]
+    },
+    {
+      "username": "complianceofficer@acme.dev",
+      "email": "complianceofficer@acme.dev",
+      "firstName": "Compliance",
+      "lastName": "Officer",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-hq"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "compliance123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "COMPLIANCE_OFFICER"
+      ]
+    },
+    {
+      "username": "finance@acme.dev",
+      "email": "finance@acme.dev",
+      "firstName": "Finance",
+      "lastName": "Officer",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ],
+        "branch_id": [
+          "branch-hq"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "FINANCE_OFFICER"
+      ]
+    },
+    {
+      "username": "client@employer.dev",
+      "email": "client@employer.dev",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CLIENT_USER"
+      ]
+    },
+    {
+      "username": "candidate@test.dev",
+      "email": "candidate@test.dev",
+      "enabled": true,
+      "emailVerified": true,
+      "attributes": {
+        "tenant_id": [
+          "tenant-acme"
+        ]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "admin123",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CANDIDATE"
+      ]
+    }
+  ]
+}

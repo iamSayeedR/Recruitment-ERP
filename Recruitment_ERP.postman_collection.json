@@ -1,0 +1,228 @@
+{
+  "info": {
+    "name": "Recruitment ERP API Collection",
+    "description": "Complete Postman collection for Recruitment ERP microservices. Uses 127.0.0.1 to avoid Windows IPv6 localhost ECONNRESET issues.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:3000/api/v1",
+      "type": "string"
+    },
+    {
+      "key": "keycloakUrl",
+      "value": "http://127.0.0.1:8180",
+      "type": "string"
+    },
+    {
+      "key": "bearerToken",
+      "value": "",
+      "type": "string"
+    },
+    { "key": "iamUrl", "value": "http://127.0.0.1:8081/api/v1", "type": "string" },
+    { "key": "reqUrl", "value": "http://127.0.0.1:8082/api/v1", "type": "string" },
+    { "key": "candUrl", "value": "http://127.0.0.1:8083/api/v1", "type": "string" },
+    { "key": "compUrl", "value": "http://127.0.0.1:8084/api/v1", "type": "string" },
+    { "key": "gwUrl", "value": "http://127.0.0.1:8085/api/v1", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "0. Auth (Keycloak Token)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "client_id", "value": "erp-backend" },
+            { "key": "client_secret", "value": "b5dbb13b-8217-45af-a83d-3a3f5507d4b4" },
+            { "key": "grant_type", "value": "password" },
+            { "key": "username", "value": "tenantadmin@acme.dev" },
+            { "key": "password", "value": "admin123" }
+          ]
+        },
+        "url": {
+          "raw": "{{keycloakUrl}}/realms/recruitment-erp/protocol/openid-connect/token",
+          "host": ["{{keycloakUrl}}"],
+          "path": ["realms", "recruitment-erp", "protocol", "openid-connect", "token"]
+        }
+      }
+    },
+    {
+      "name": "1. IAM Service (Port 8081)",
+      "item": [
+        {
+          "name": "GET Branches (Direct 8081)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{iamUrl}}/branches?page=0&size=20", "host": ["{{iamUrl}}"], "path": ["branches"] }
+          }
+        },
+        {
+          "name": "GET Branches (Via Proxy 3000)",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{baseUrl}}/branches?page=0&size=20", "host": ["{{baseUrl}}"], "path": ["branches"] }
+          }
+        },
+        {
+          "name": "POST Create Branch",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Riyadh Branch\",\n  \"code\": \"SAU-RUH-01\",\n  \"country\": \"Saudi Arabia\",\n  \"city\": \"Riyadh\",\n  \"address\": \"King Fahd Rd\",\n  \"phone\": \"+966112345678\",\n  \"email\": \"riyadh@acme.dev\"\n}"
+            },
+            "url": { "raw": "{{iamUrl}}/branches", "host": ["{{iamUrl}}"], "path": ["branches"] }
+          }
+        },
+        {
+          "name": "GET Clients",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{iamUrl}}/clients?page=0&size=20", "host": ["{{iamUrl}}"], "path": ["clients"] }
+          }
+        },
+        {
+          "name": "POST Create Client",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Saudi Arabian Oil Co\",\n  \"industry\": \"Oil & Gas\",\n  \"country\": \"Saudi Arabia\",\n  \"contactPerson\": \"Ahmad Al-Mansoor\",\n  \"contactEmail\": \"ahmad@aramco.dev\",\n  \"contactPhone\": \"+966138765432\",\n  \"notes\": \"Key enterprise client\"\n}"
+            },
+            "url": { "raw": "{{iamUrl}}/clients", "host": ["{{iamUrl}}"], "path": ["clients"] }
+          }
+        },
+        {
+          "name": "POST Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"newrecruiter@acme.dev\",\n  \"fullName\": \"Sarah Jenkins\",\n  \"role\": \"RECRUITER\",\n  \"branchId\": \"bc17332e-87b3-48d0-8b40-928defc45c79\"\n}"
+            },
+            "url": { "raw": "{{iamUrl}}/users", "host": ["{{iamUrl}}"], "path": ["users"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Requisition Service (Port 8082)",
+      "item": [
+        {
+          "name": "GET Requisitions",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{reqUrl}}/requisitions?page=0&size=20", "host": ["{{reqUrl}}"], "path": ["requisitions"] }
+          }
+        },
+        {
+          "name": "POST Create Requisition",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Senior Civil Engineer\",\n  \"description\": \"Infrastructure site engineer for high-rise commercial project.\",\n  \"clientId\": \"c0a80101-0000-0000-0000-000000000001\",\n  \"branchId\": \"bc17332e-87b3-48d0-8b40-928defc45c79\",\n  \"quantityRequired\": 5,\n  \"destinationCountry\": \"Saudi Arabia\",\n  \"employmentType\": \"FULL_TIME\",\n  \"minSalary\": 12000,\n  \"maxSalary\": 18000,\n  \"currency\": \"SAR\"\n}"
+            },
+            "url": { "raw": "{{reqUrl}}/requisitions", "host": ["{{reqUrl}}"], "path": ["requisitions"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Candidate Service (Port 8083)",
+      "item": [
+        {
+          "name": "GET Candidates",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{candUrl}}/candidates?page=0&size=20", "host": ["{{candUrl}}"], "path": ["candidates"] }
+          }
+        },
+        {
+          "name": "POST Create Candidate",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Rahul Sharma\",\n  \"email\": \"rahul.sharma@example.com\",\n  \"phone\": \"+919876543210\",\n  \"nationality\": \"Indian\",\n  \"passportNumber\": \"Z9876543\",\n  \"currentLocation\": \"Mumbai, India\"\n}"
+            },
+            "url": { "raw": "{{candUrl}}/candidates", "host": ["{{candUrl}}"], "path": ["candidates"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Compliance Service (Port 8084)",
+      "item": [
+        {
+          "name": "GET Compliance Expirations",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{compUrl}}/compliance/expirations", "host": ["{{compUrl}}"], "path": ["compliance", "expirations"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Gateway / Dashboard (Port 8085)",
+      "item": [
+        {
+          "name": "GET Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{bearerToken}}" }
+            ],
+            "url": { "raw": "{{gwUrl}}/dashboard/summary", "host": ["{{gwUrl}}"], "path": ["dashboard", "summary"] }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+11:00:59,020 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.5.11
+11:00:59,453 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Here is a list of configurators discovered as a service, by rank: 
+11:00:59,453 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f -   org.springframework.boot.logging.logback.RootLogLevelConfigurator
+11:00:59,453 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - They will be invoked in order until ExecutionStatus.DO_NOT_INVOKE_NEXT_IF_ANY is returned.
+11:00:59,453 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Constructed configurator of type class org.springframework.boot.logging.logback.RootLogLevelConfigurator
+11:00:59,517 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - org.springframework.boot.logging.logback.RootLogLevelConfigurator.configure() call lasted 6 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+11:00:59,517 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Trying to configure with ch.qos.logback.classic.joran.SerializedModelConfigurator
+11:00:59,761 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Constructed configurator of type class ch.qos.logback.classic.joran.SerializedModelConfigurator
+11:00:59,762 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.scmo]
+11:00:59,763 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.scmo]
+11:00:59,763 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - ch.qos.logback.classic.joran.SerializedModelConfigurator.configure() call lasted 2 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+11:00:59,763 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Trying to configure with ch.qos.logback.classic.util.DefaultJoranConfigurator
+11:00:59,810 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Constructed configurator of type class ch.qos.logback.classic.util.DefaultJoranConfigurator
+11:00:59,813 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+11:00:59,815 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.xml]
+11:00:59,815 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - ch.qos.logback.classic.util.DefaultJoranConfigurator.configure() call lasted 5 milliseconds. ExecutionStatus=INVOKE_NEXT_IF_ANY
+11:00:59,815 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Trying to configure with ch.qos.logback.classic.BasicConfigurator
+11:00:59,864 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - Constructed configurator of type class ch.qos.logback.classic.BasicConfigurator
+11:00:59,864 |-INFO in ch.qos.logback.classic.BasicConfigurator@55caeb35 - Setting up default configuration.
+11:01:00,751 |-INFO in ch.qos.logback.classic.util.ContextInitializer@c7a977f - ch.qos.logback.classic.BasicConfigurator.configure() call lasted 886 milliseconds. ExecutionStatus=NEUTRAL
+11:01:15,355 |-INFO in ConfigurationWatchList(mainURL=jar:nested:/app/app.jar/!BOOT-INF/lib/platform-common-0.1.0-SNAPSHOT.jar!/logback-spring.xml, fileWatchList={}, urlWatchList=[}) - URL [jar:nested:/app/app.jar/!BOOT-INF/lib/platform-common-0.1.0-SNAPSHOT.jar!/logback-spring.xml] is not of type file
+11:01:16,335 |-WARN in ch.qos.logback.core.joran.action.ConversionRuleAction - [converterClass] attribute is deprecated and replaced by [class]. See element [conversionRule] near line 6
+11:01:16,863 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@74a195a4 - Adding [jar:nested:/app/app.jar/!BOOT-INF/lib/spring-boot-3.3.5.jar!/org/springframework/boot/logging/logback/defaults.xml] to configuration watch list.
+11:01:16,864 |-INFO in ConfigurationWatchList(mainURL=jar:nested:/app/app.jar/!BOOT-INF/lib/platform-common-0.1.0-SNAPSHOT.jar!/logback-spring.xml, fileWatchList={}, urlWatchList=[}) - Cannot watch [jar:nested:/app/app.jar/!BOOT-INF/lib/spring-boot-3.3.5.jar!/org/springframework/boot/logging/logback/defaults.xml] as its protocol is not one of file, http or https.
+11:01:16,910 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word applicationName with class [org.springframework.boot.logging.logback.ApplicationNameConverter]
+11:01:16,910 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word clr with class [org.springframework.boot.logging.logback.ColorConverter]
+11:01:16,910 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word correlationId with class [org.springframework.boot.logging.logback.CorrelationIdConverter]
+11:01:16,910 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word wex with class [org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter]
+11:01:16,910 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word wEx with class [org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter]
+11:01:16,958 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "%clr(%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}){faint} %clr(%5p) %clr(1){magenta} %clr(---){faint} %clr(%applicationName[%15.15t]){faint} %clr(){faint}%clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx" substituted for "${CONSOLE_LOG_PATTERN:-%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd'T'HH:mm:ss.SSSXXX}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr(%applicationName[%15.15t]){faint} %clr(${LOG_CORRELATION_PATTERN:-}){faint}%clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"
+11:01:16,960 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "UTF-8" substituted for "${CONSOLE_LOG_CHARSET:-${file.encoding:-UTF-8}}"
+11:01:16,960 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "TRACE" substituted for "${CONSOLE_LOG_THRESHOLD:-TRACE}"
+11:01:16,962 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %5p 1 --- %applicationName[%t] %-40.40logger{39} : %m%n%wEx" substituted for "${FILE_LOG_PATTERN:-%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd'T'HH:mm:ss.SSSXXX}} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- %applicationName[%t] ${LOG_CORRELATION_PATTERN:-}%-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"
+11:01:16,967 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "UTF-8" substituted for "${FILE_LOG_CHARSET:-${file.encoding:-UTF-8}}"
+11:01:16,968 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "TRACE" substituted for "${FILE_LOG_THRESHOLD:-TRACE}"
+11:01:16,970 |-INFO in ch.qos.logback.core.joran.util.ConfigurationWatchListUtil@74a195a4 - Adding [jar:nested:/app/app.jar/!BOOT-INF/lib/spring-boot-3.3.5.jar!/org/springframework/boot/logging/logback/console-appender.xml] to configuration watch list.
+11:01:16,970 |-INFO in ConfigurationWatchList(mainURL=jar:nested:/app/app.jar/!BOOT-INF/lib/platform-common-0.1.0-SNAPSHOT.jar!/logback-spring.xml, fileWatchList={}, urlWatchList=[}) - Cannot watch [jar:nested:/app/app.jar/!BOOT-INF/lib/spring-boot-3.3.5.jar!/org/springframework/boot/logging/logback/console-appender.xml] as its protocol is not one of file, http or https.
+11:01:17,004 |-INFO in ch.qos.logback.core.model.processor.ConversionRuleModelHandler - registering conversion word maskPii with class [com.recruitmenterp.common.logging.PiiMaskingConverter]
+11:01:17,039 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.startup.DigesterFactory] to ERROR
+11:01:17,040 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating ERROR level on Logger[org.apache.catalina.startup.DigesterFactory] onto the JUL framework
+11:01:17,056 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.catalina.util.LifecycleBase] to ERROR
+11:01:17,056 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating ERROR level on Logger[org.apache.catalina.util.LifecycleBase] onto the JUL framework
+11:01:17,056 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.coyote.http11.Http11NioProtocol] to WARN
+11:01:17,056 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating WARN level on Logger[org.apache.coyote.http11.Http11NioProtocol] onto the JUL framework
+11:01:17,057 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.sshd.common.util.SecurityUtils] to WARN
+11:01:17,057 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating WARN level on Logger[org.apache.sshd.common.util.SecurityUtils] onto the JUL framework
+11:01:17,057 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.apache.tomcat.util.net.NioSelectorPool] to WARN
+11:01:17,057 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating WARN level on Logger[org.apache.tomcat.util.net.NioSelectorPool] onto the JUL framework
+11:01:17,057 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.eclipse.jetty.util.component.AbstractLifeCycle] to ERROR
+11:01:17,057 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating ERROR level on Logger[org.eclipse.jetty.util.component.AbstractLifeCycle] onto the JUL framework
+11:01:17,057 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.hibernate.validator.internal.util.Version] to WARN
+11:01:17,057 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating WARN level on Logger[org.hibernate.validator.internal.util.Version] onto the JUL framework
+11:01:17,057 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [org.springframework.boot.actuate.endpoint.jmx] to WARN
+11:01:17,057 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating WARN level on Logger[org.springframework.boot.actuate.endpoint.jmx] onto the JUL framework
+11:01:17,058 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+11:01:17,059 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+11:01:17,139 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "TRACE" substituted for "${CONSOLE_LOG_THRESHOLD}"
+11:01:17,172 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+11:01:17,175 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "%clr(%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX}){faint} %clr(%5p) %clr(1){magenta} %clr(---){faint} %clr(%applicationName[%15.15t]){faint} %clr(){faint}%clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx" substituted for "${CONSOLE_LOG_PATTERN}"
+11:01:17,183 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "UTF-8" substituted for "${CONSOLE_LOG_CHARSET}"
+11:01:17,682 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+11:01:17,682 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+11:01:17,689 |-INFO in ch.qos.logback.core.model.processor.ImplicitModelHandler - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+11:01:17,699 |-INFO in ch.qos.logback.core.model.processor.ModelInterpretationContext@76304b46 - value "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - [traceId=%X{correlationId:-}] %maskPii%n" substituted for "${LOG_PATTERN}"
+11:01:17,755 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [FILE]
+11:01:17,755 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.rolling.RollingFileAppender]
+11:01:18,101 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1116197959 - No compression will be used
+11:01:18,118 |-INFO in c.q.l.core.rolling.TimeBasedRollingPolicy@1116197959 - Will use the pattern logs/application-%d{yyyy-MM-dd}.log for the active file
+11:01:18,382 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - The date pattern is 'yyyy-MM-dd' from file name pattern 'logs/application-%d{yyyy-MM-dd}.log'.
+11:01:18,382 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Roll-over at midnight.
+11:01:18,439 |-INFO in c.q.l.core.rolling.DefaultTimeBasedFileNamingAndTriggeringPolicy - Setting initial period to 2026-08-11T11:01:18.437Z
+11:01:26,885 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - Active log file name: logs/application.log
+11:01:26,885 |-INFO in ch.qos.logback.core.rolling.RollingFileAppender[FILE] - File property is set to [logs/application.log]
+11:01:26,921 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to INFO
+11:01:26,921 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@2fa3be26 - Propagating INFO level on Logger[ROOT] onto the JUL framework
+11:01:26,922 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ROOT]
+11:01:26,922 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [FILE] to Logger[ROOT]
+11:01:26,922 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@3af37506 - End of configuration.
+11:01:26,922 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@4e6d7365 - Registering current configuration as safe fallback point
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-11 11:01:30.542 [main] INFO  c.r.iam.IamServiceApplication - [traceId=] Starting IamServiceApplication v0.1.0-SNAPSHOT using Java 21.0.11 with PID 1 (/app/app.jar started by erp in /app)
+2026-08-11 11:01:31.265 [main] INFO  c.r.iam.IamServiceApplication - [traceId=] No active profile set, falling back to 1 default profile: "default"
+2026-08-11 11:02:10.165 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-11 11:02:10.364 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-11 11:02:16.745 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Finished Spring Data repository scanning in 6212 ms. Found 5 JPA repository interfaces.
+2026-08-11 11:02:17.480 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-11 11:02:17.501 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-11 11:02:18.142 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - [traceId=] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.BranchRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-11 11:02:18.160 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - [traceId=] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientContractRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-11 11:02:18.167 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - [traceId=] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.ClientRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-11 11:02:18.173 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - [traceId=] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.TenantRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-11 11:02:18.177 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - [traceId=] Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.recruitmenterp.iam.adapter.out.persistence.UserProfileRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-11 11:02:18.181 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - [traceId=] Finished Spring Data repository scanning in 369 ms. Found 0 Redis repository interfaces.
+2026-08-11 11:02:28.282 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [traceId=] No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2026-08-11 11:02:28.482 [main] INFO  o.s.i.c.DefaultConfiguringBeanFactoryPostProcessor - [traceId=] No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2026-08-11 11:02:55.051 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - [traceId=] Tomcat initialized with port 8081 (http)
+2026-08-11 11:02:55.155 [main] INFO  o.a.catalina.core.StandardService - [traceId=] Starting service [Tomcat]
+2026-08-11 11:02:55.157 [main] INFO  o.a.catalina.core.StandardEngine - [traceId=] Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-08-11 11:02:55.410 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - [traceId=] Initializing Spring embedded WebApplicationContext
+2026-08-11 11:02:55.422 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - [traceId=] Root WebApplicationContext: initialization completed in 82264 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
