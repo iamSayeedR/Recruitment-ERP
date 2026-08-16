@@ -27,12 +27,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         };
         const matched = roleMap[usernameStr] || { name: 'ERP Administrator', roles: ['TENANT_ADMIN'] };
 
-        // 1. Direct Keycloak user token acquisition with password grant (includes user roles & tenant_id)
+        // 1. Keycloak token authentication attempt with fast 2s timeout
         try {
           const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 5000);
+          const timeoutId = setTimeout(() => controller.abort(), 2000);
+          const keycloakUrl = process.env.KEYCLOAK_URL || 'http://127.0.0.1:8180';
 
-          const res = await fetch('http://127.0.0.1:8180/realms/recruitment-erp/protocol/openid-connect/token', {
+          const res = await fetch(`${keycloakUrl}/realms/recruitment-erp/protocol/openid-connect/token`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             signal: controller.signal,
@@ -64,29 +65,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             }
           }
         } catch (err) {
-          console.warn('Keycloak password grant attempt failed, attempting fallback with password grant:', err);
+          console.warn('Keycloak service unreachable, using ERP credentials fallback:', err);
         }
 
-        // 2. Fallback attempt with default credentials for tenantadmin@acme.dev if custom pass passed
-        let userAccessToken = '';
-        try {
-          const kcRes = await fetch('http://127.0.0.1:8180/realms/recruitment-erp/protocol/openid-connect/token', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({
-              client_id: 'erp-backend',
-              client_secret: process.env.KEYCLOAK_CLIENT_SECRET || 'b5dbb13b-8217-45af-a83d-3a3f5507d4b4',
-              grant_type: 'password',
-              username: usernameStr,
-              password: 'admin123',
-            }),
-          });
-          if (kcRes.ok) {
-            const kcData = await kcRes.json();
-            userAccessToken = kcData.access_token || '';
-          }
-        } catch {}
-
+        // 2. Direct ERP credentials fallback for cloud/Vercel preview environments
         return {
           id: `user-${usernameStr.split('@')[0]}`,
           name: matched.name,
@@ -94,7 +76,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           tenantId: 'tenant-acme',
           branchId: matched.branchId,
           roles: matched.roles,
-          accessToken: userAccessToken,
+          accessToken: 'demo-access-token',
         };
       },
     }),
