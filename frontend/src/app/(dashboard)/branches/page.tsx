@@ -75,7 +75,7 @@ export default function BranchesPage() {
   });
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const branches: any[] = Array.isArray(data) ? data : (data?.content || []);
+  const branches: any[] = Array.isArray(data) ? data : ((data as any)?.content || []);
   const filtered = branches.filter((b: any) =>
     (b.name || '').toLowerCase().includes(search.toLowerCase()) ||
     (b.country || '').toLowerCase().includes(search.toLowerCase()) ||

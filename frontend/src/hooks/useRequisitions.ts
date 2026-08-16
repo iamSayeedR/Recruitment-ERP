@@ -5,7 +5,7 @@ import {
   CreateRequisitionRequest,
   UpdateRequisitionRequest,
   PagedResponse,
-  RequisitionStatus
+  RequisitionStatus,
 } from '@/lib/api-types';
 
 export const REQUISITION_KEYS = {
@@ -26,7 +26,7 @@ export function useRequisitions(filters: Record<string, any> = {}) {
       const res = await apiClient<PagedResponse<Requisition> | Requisition[]>(endpoint);
       if (Array.isArray(res)) return res;
       if (res && Array.isArray((res as PagedResponse<Requisition>).content)) {
-        return (res as PagedResponse<Requisition>).content;
+        return (res as PagedResponse<Requisition>).content || [];
       }
       return [];
     },
@@ -49,7 +49,7 @@ export function useRequisition(id: string) {
 export function useCreateRequisition() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (data: CreateRequisitionRequest) => 
+    mutationFn: (data: CreateRequisitionRequest) =>
       apiClient<Requisition>('/requisitions', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -78,10 +78,9 @@ export function useUpdateRequisition() {
 export function useTransitionRequisitionStatus() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, status }: { id: string; status: RequisitionStatus }) =>
-      apiClient<Requisition>(`/requisitions/${id}/transition`, {
-        method: 'POST',
-        body: JSON.stringify({ newStatus: status, notes: 'Status updated via UI' }),
+    mutationFn: ({ id, status, notes }: { id: string; status: RequisitionStatus; notes?: string }) =>
+      apiClient<Requisition>(`/requisitions/${id}/status?status=${status}&notes=${encodeURIComponent(notes || '')}`, {
+        method: 'PATCH',
       }),
     onSuccess: (_, { id }) => {
       queryClient.invalidateQueries({ queryKey: REQUISITION_KEYS.detail(id) });

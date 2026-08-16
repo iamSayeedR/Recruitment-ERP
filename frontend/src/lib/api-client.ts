@@ -20,7 +20,7 @@ function isTokenExpired(token: string): boolean {
   try {
     const parts = token.split('.');
     if (parts.length !== 3) return false;
-    const payload = JSON.parse(atob(parts[1]));
+    const payload = JSON.parse(atob(parts[1] || ''));
     if (payload.exp) {
       return (payload.exp * 1000) < (Date.now() + 10000);
     }
@@ -40,8 +40,8 @@ async function fetchAccessToken(): Promise<string | null> {
         cache: 'no-store',
       });
       if (!res.ok) return null;
-      const { accessToken } = await res.json();
-      return accessToken as string;
+      const data = await res.json().catch(() => null);
+      return (data?.accessToken as string) || null;
     } catch {
       return null;
     } finally {
@@ -109,40 +109,45 @@ export const apiClient = async <T>(
     headers.set('Authorization', `Bearer ${token}`);
   }
 
-  let response = await fetch(fullUrl, {
-    ...options,
-    headers,
-  });
-
-  if (response.status === 401) {
-    invalidateToken();
-    const freshToken = await fetchAccessToken();
-    if (freshToken) {
-      headers.set('Authorization', `Bearer ${freshToken}`);
-      response = await fetch(fullUrl, {
-        ...options,
-        headers,
-      });
-    }
-  }
-
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => null);
-    throw new ApiError(response.status, errorData);
-  }
-
-  if (response.status === 204) {
-    return {} as T;
-  }
-
-  const text = await response.text();
-  if (!text || !text.trim()) {
-    return {} as T;
-  }
-
   try {
-    return JSON.parse(text) as T;
-  } catch {
-    return {} as T;
+    let response = await fetch(fullUrl, {
+      ...options,
+      headers,
+    });
+
+    if (response.status === 401) {
+      invalidateToken();
+      const freshToken = await fetchAccessToken();
+      if (freshToken) {
+        headers.set('Authorization', `Bearer ${freshToken}`);
+        response = await fetch(fullUrl, {
+          ...options,
+          headers,
+        });
+      }
+    }
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => null);
+      throw new ApiError(response.status, errorData);
+    }
+
+    if (response.status === 204) {
+      return {} as T;
+    }
+
+    const text = await response.text().catch(() => '');
+    if (!text || !text.trim()) {
+      return {} as T;
+    }
+
+    try {
+      return JSON.parse(text) as T;
+    } catch {
+      return {} as T;
+    }
+  } catch (err: any) {
+    if (err instanceof ApiError) throw err;
+    throw new ApiError(500, { message: err?.message || 'Network request failed' });
   }
 };

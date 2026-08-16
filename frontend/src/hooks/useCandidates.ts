@@ -27,7 +27,7 @@ export function useCandidates(filters: Record<string, any> = {}) {
       const res = await apiClient<PagedResponse<Candidate> | Candidate[]>(endpoint);
       if (Array.isArray(res)) return res;
       if (res && Array.isArray((res as PagedResponse<Candidate>).content)) {
-        return (res as PagedResponse<Candidate>).content;
+        return (res as PagedResponse<Candidate>).content || [];
       }
       return [];
     },
