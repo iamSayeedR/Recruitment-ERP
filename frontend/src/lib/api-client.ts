@@ -69,6 +69,18 @@ function resolveServiceUrl(endpoint: string): string {
   const formatted = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
   const cleanPath = formatted.startsWith('/api/v1') ? formatted.replace('/api/v1', '') : formatted;
 
+  // In production / Vercel deployment, default to relative path or custom API base URL
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+  if (baseUrl) {
+    return `${baseUrl.replace(/\/$/, '')}/api/v1${cleanPath}`;
+  }
+
+  // If in browser on cloud deployment (e.g. *.vercel.app), do not try loopback 127.0.0.1 IPs
+  if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')) {
+    return `/api/v1${cleanPath}`;
+  }
+
+  // Local development microservices port mapping
   if (cleanPath.startsWith('/branches') || cleanPath.startsWith('/clients') || cleanPath.startsWith('/users') || cleanPath.startsWith('/iam')) {
     return `http://127.0.0.1:8081/api/v1${cleanPath}`;
   }
