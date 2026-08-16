@@ -43,6 +43,25 @@ public class DashboardAggregateConsumer {
                 String status = root.path("payload").path("status").asText(action.isEmpty() ? "UNKNOWN" : action);
                 updateCount(tenantId, "compliance", status);
             }
+
+            // Record live activity event into Redis ZSet for activity feed
+            long score = System.currentTimeMillis();
+            String entityName = root.path("payload").path("title").asText(
+                root.path("payload").path("fullName").asText(
+                    root.path("payload").path("name").asText(entityType)
+                )
+            );
+            String actor = root.path("actor").asText(root.path("createdBy").asText("system"));
+
+            Map<String, Object> activityEvent = Map.of(
+                "id", root.path("eventId").asText("evt-" + score),
+                "type", eventType.isEmpty() ? action : eventType,
+                "entity", entityName,
+                "actor", actor,
+                "timestamp", java.time.Instant.ofEpochMilli(score).toString()
+            );
+
+            redisTemplate.opsForZSet().add("dashboard:" + tenantId + ":activity", objectMapper.writeValueAsString(activityEvent), score);
         } catch (Exception e) {
             e.printStackTrace();
         }

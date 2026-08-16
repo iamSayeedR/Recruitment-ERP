@@ -33,7 +33,7 @@ export const CandidateList: React.FC = () => {
         <h2>{t('title')}</h2>
         <Link href="/candidates/bulk"><Button>{t('bulkUpload')}</Button></Link>
       </div>
-      <DataTable data={data?.data || []} columns={columns} loading={isLoading} />
+      <DataTable data={Array.isArray(data) ? data : ((data as any)?.content || [])} columns={columns} loading={isLoading} />
     </div>
   );
 };

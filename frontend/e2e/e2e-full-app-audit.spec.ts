@@ -80,7 +80,7 @@ test.describe('E2E Full ERP System Audit', () => {
         if (await select.isVisible()) {
           const options = await select.locator('option').all();
           if (options.length > 1) {
-            const val = await options[1].getAttribute('value');
+            const val = await options[1]?.getAttribute('value');
             if (val) await select.selectOption(val);
           }
           await page.click('button[type="submit"]');

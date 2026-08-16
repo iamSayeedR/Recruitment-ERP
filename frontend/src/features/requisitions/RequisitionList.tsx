@@ -118,7 +118,7 @@ export const RequisitionList: React.FC = () => {
             {filtered.map((r: any) => {
               const title = r.title || r.jobTitle || 'Untitled Requisition';
               const rawDept = (r.department && r.department !== r.jobCategory) ? r.department : (r.jobCategory ? r.jobCategory.replace(/_/g, ' ') : 'Engineering');
-              const dept = rawDept.toLowerCase().replace(/\b\w/g, (c: string) => c.toUpperCase());
+              const dept = rawDept.toUpperCase() === 'IT' ? 'IT' : rawDept.toLowerCase().replace(/\b\w/g, (c: string) => c.toUpperCase());
               const initial = title.charAt(0).toUpperCase();
               const headcount = r.positionsRequired ?? r.positions_required ?? r.headcount ?? r.vacancies ?? 1;
               const location = r.destinationCountry ?? r.destination_country ?? r.location ?? r.country ?? '—';

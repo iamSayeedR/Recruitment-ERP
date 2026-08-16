@@ -5,6 +5,7 @@ export interface ErrorResponse {
 
 export interface PagedResponse<T> {
   data: T[];
+  content?: T[];
   total: number;
   page: number;
   limit: number;
@@ -50,10 +51,10 @@ export interface CurrentUserResponse {
   tenant: TenantResponse;
 }
 
-export type RequisitionStatus = 'DRAFT' | 'OPEN' | 'ON_HOLD' | 'CLOSED' | 'CANCELLED';
+export type RequisitionStatus = 'DRAFT' | 'APPROVED' | 'PUBLISHED' | 'OPEN' | 'ON_HOLD' | 'FILLED' | 'CLOSED' | 'CANCELLED';
 export type RequisitionPriority = 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
 export type JobCategory = 'BLUE_COLLAR' | 'WHITE_COLLAR' | 'EXECUTIVE';
-export type CandidateApplicationStatus = 'APPLIED' | 'SCREENING' | 'INTERVIEWING' | 'OFFERED' | 'HIRED' | 'REJECTED' | 'WITHDRAWN';
+export type CandidateApplicationStatus = 'APPLIED' | 'SCREENING' | 'INTERVIEWING' | 'INTERVIEW_SCHEDULED' | 'INTERVIEWED' | 'SHORTLISTED' | 'SELECTED' | 'OFFERED' | 'OFFER_ACCEPTED' | 'MOBILIZED' | 'HIRED' | 'REJECTED' | 'WITHDRAWN';
 
 export interface Requisition {
   id: string;
@@ -100,8 +101,8 @@ export interface CandidateApplication {
   candidateId: string;
   requisitionId: string;
   status: CandidateApplicationStatus;
-  appliedAt: string;
-  updatedAt: string;
+  appliedAt?: string;
+  updatedAt?: string;
   candidate?: Candidate;
   requisition?: Requisition;
 }

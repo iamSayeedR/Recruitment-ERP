@@ -124,6 +124,8 @@ export const CandidatePipeline: React.FC<{ requisitionId: string }> = ({ requisi
         candidateId: selectedCandidateId,
         requisitionId,
         status: 'APPLIED',
+        appliedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         candidate: selected as Candidate,
       };
       setLocalApps(prev => [newApp, ...prev]);
@@ -150,6 +152,8 @@ export const CandidatePipeline: React.FC<{ requisitionId: string }> = ({ requisi
         candidateId: newCandId,
         requisitionId,
         status: 'APPLIED',
+        appliedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         candidate: {
           id: newCandId,
           firstName: newCandidateData.firstName,

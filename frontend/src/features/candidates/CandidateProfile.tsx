@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useCandidate } from '@/hooks/useCandidates';
 import { Button } from '@/ui/Button';
 import styles from './CandidateProfile.module.css';
 
 export const CandidateProfile: React.FC<{ id: string }> = ({ id }) => {
   const t = useTranslations('Candidates');
+  const router = useRouter();
   const { data: candidate, isLoading } = useCandidate(id);
   const [activeTab, setActiveTab] = useState<'personal' | 'applications' | 'documents' | 'viewer'>('personal');
   const [selectedDocUrl, setSelectedDocUrl] = useState<string | null>(null);
