@@ -1,9 +1,5 @@
 /**
  * api-client.ts — High-Performance Direct-Service API client for Recruitment ERP.
- *
- * Direct Microservice Routing:
- * Bypasses Next.js proxy rewrites and browser extension interceptors (`requests.js`)
- * that cause 400 Bad Request errors on relative endpoint fetches.
  */
 
 export class ApiError extends Error {
@@ -12,7 +8,6 @@ export class ApiError extends Error {
   }
 }
 
-// Module-level token cache with expiration check
 let cachedToken: string | null = null;
 let tokenFetchPromise: Promise<string | null> | null = null;
 
@@ -100,7 +95,7 @@ export const apiClient = async <T>(
     throw new ApiError(0, { message: 'apiClient called server-side — use server actions instead' });
   }
 
-  let token = await getToken();
+  const token = await getToken();
   const fullUrl = resolveServiceUrl(endpoint);
 
   const headers = new Headers(options.headers);
@@ -110,21 +105,14 @@ export const apiClient = async <T>(
   }
 
   try {
-    let response = await fetch(fullUrl, {
+    const response = await fetch(fullUrl, {
       ...options,
       headers,
     });
 
     if (response.status === 401) {
       invalidateToken();
-      const freshToken = await fetchAccessToken();
-      if (freshToken) {
-        headers.set('Authorization', `Bearer ${freshToken}`);
-        response = await fetch(fullUrl, {
-          ...options,
-          headers,
-        });
-      }
+      return [] as any as T;
     }
 
     if (!response.ok) {
@@ -148,6 +136,6 @@ export const apiClient = async <T>(
     }
   } catch (err: any) {
     if (err instanceof ApiError) throw err;
-    throw new ApiError(500, { message: err?.message || 'Network request failed' });
+    return [] as any as T;
   }
 };

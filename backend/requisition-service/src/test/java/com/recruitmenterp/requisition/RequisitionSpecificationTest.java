@@ -90,7 +90,7 @@ class RequisitionSpecificationTest {
 
     @Test
     void testFilterByBranchScope() {
-        var spec = RequisitionSpecification.withFilters(null, null, null, branchA);
+        var spec = RequisitionSpecification.withFilters(null, null, null, branchA.toString());
         var results = repository.findAll(spec);
         assertThat(results).hasSize(1);
         assertThat(results.get(0).getBranchId()).isEqualTo(branchA);
@@ -98,7 +98,7 @@ class RequisitionSpecificationTest {
 
     @Test
     void testMultipleFilters() {
-        var spec = RequisitionSpecification.withFilters(JobCategory.WHITE_COLLAR, "UAE", RequisitionStatus.DRAFT, branchA);
+        var spec = RequisitionSpecification.withFilters(JobCategory.WHITE_COLLAR, "UAE", RequisitionStatus.DRAFT, branchA.toString());
         var results = repository.findAll(spec);
         assertThat(results).hasSize(1);
     }

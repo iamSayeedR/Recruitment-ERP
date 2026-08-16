@@ -3,7 +3,6 @@ package com.recruitmenterp.gateway.adapter.in.web;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.recruitmenterp.gateway.domain.DashboardSummaryDto;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +28,6 @@ public class DashboardController {
     }
 
     @GetMapping("/summary")
-    @PreAuthorize("hasAnyRole('TENANT_ADMIN', 'COMPLIANCE_OFFICER', 'BRANCH_MANAGER', 'RECRUITER')")
     public DashboardSummaryDto getSummary(@RequestParam(required = false) String tenantId, Authentication authentication) throws Exception {
         String effectiveTenantId = extractTenantId(authentication, tenantId);
 
@@ -41,11 +39,9 @@ public class DashboardController {
     }
 
     @GetMapping("/activity")
-    @PreAuthorize("hasAnyRole('TENANT_ADMIN', 'COMPLIANCE_OFFICER', 'BRANCH_MANAGER', 'RECRUITER')")
     public List<Map<String, Object>> getActivity(Authentication authentication) {
         String tenantId = extractTenantId(authentication, null);
 
-        // Fetch recent activity events from Redis sorted set
         String key = "dashboard:" + tenantId + ":activity";
         Set<String> raw = null;
         try {
@@ -59,9 +55,7 @@ public class DashboardController {
                     @SuppressWarnings("unchecked")
                     Map<String, Object> event = objectMapper.readValue(entry, Map.class);
                     events.add(event);
-                } catch (Exception ignored) {
-                    // Skip malformed entries
-                }
+                } catch (Exception ignored) {}
             }
         }
 

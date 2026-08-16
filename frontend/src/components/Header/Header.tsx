@@ -11,7 +11,6 @@ export function Header() {
   const { toggleSidebar } = useUiStore();
   const pathname = usePathname();
 
-  // Generate dynamic breadcrumb items based on current path
   const pathSegments = pathname.split('/').filter(Boolean);
   const isUuid = (str: string) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(str);
 
@@ -35,7 +34,10 @@ export function Header() {
       });
 
   const handleLogout = async () => {
-    await signOut({ callbackUrl: '/auth/signin', redirect: true });
+    try {
+      await signOut({ callbackUrl: '/auth/signin', redirect: false });
+    } catch {}
+    window.location.href = '/auth/signin';
   };
 
   return (

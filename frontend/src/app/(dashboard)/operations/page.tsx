@@ -14,40 +14,21 @@ export default function OperationsDashboardPage() {
   const { data: requisitionsData } = useRequisitions();
   const { data: candidatesData } = useCandidates();
 
-  const reqs = Array.isArray(requisitionsData) ? requisitionsData : (requisitionsData as any)?.content || [];
-  const cands = Array.isArray(candidatesData) ? candidatesData : (candidatesData as any)?.content || [];
+  const reqs = Array.isArray(requisitionsData) ? requisitionsData : (requisitionsData as any)?.content || (requisitionsData as any)?.data || [];
+  const cands = Array.isArray(candidatesData) ? candidatesData : (candidatesData as any)?.content || (candidatesData as any)?.data || [];
 
-  // Dynamically compute live pending actions
   const pendingRequisitions = reqs.filter((r: any) => r.status === 'DRAFT' || r.status === 'OPEN');
   const pendingActionsList = [
-    ...(pendingRequisitions.length > 0
-      ? pendingRequisitions.slice(0, 2).map((r: any) => ({
-          id: `pending-req-${r.id}`,
-          type: 'OVERDUE APPROVAL',
-          text: `Requisition "${r.title}" (${r.jobCategory || 'General'}) is pending management approval.`,
-        }))
-      : [
-          {
-            id: 'pending-req-default',
-            type: 'OVERDUE APPROVAL',
-            text: 'Requisition REQ-104 (Senior DevOps Specialist) has been pending approval for 2 days.',
-          },
-        ]),
-    ...(cands.length > 0
-      ? [
-          {
-            id: 'pending-cand-1',
-            type: 'STALLED CANDIDATE',
-            text: `Candidate ${cands[0].firstName} ${cands[0].lastName} has been in INTERVIEWED stage for 5 days.`,
-          },
-        ]
-      : [
-          {
-            id: 'pending-cand-default',
-            type: 'STALLED CANDIDATE',
-            text: 'Candidate John Doe has been in INTERVIEWED stage for 8 days.',
-          },
-        ]),
+    ...pendingRequisitions.slice(0, 3).map((r: any) => ({
+      id: `pending-req-${r.id}`,
+      type: 'PENDING REQUISITION',
+      text: `Requisition "${r.title || r.jobTitle || 'Untitled'}" (${r.department || r.category || 'General'}) is in ${r.status} status.`,
+    })),
+    ...cands.slice(0, 3).map((c: any) => ({
+      id: `pending-cand-${c.id}`,
+      type: 'CANDIDATE IN PIPELINE',
+      text: `Candidate ${c.firstName || ''} ${c.lastName || ''} (${c.location || 'Unassigned'}) in application pipeline.`,
+    })),
   ];
 
   return (
@@ -93,6 +74,9 @@ export default function OperationsDashboardPage() {
                   <div className={styles.activityBody}>{action.text}</div>
                 </div>
               ))}
+              {pendingActionsList.length === 0 && (
+                <p style={{ color: 'var(--color-text-tertiary)' }}>No pending actions.</p>
+              )}
             </div>
           </div>
 
