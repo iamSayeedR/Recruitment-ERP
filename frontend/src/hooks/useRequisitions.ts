@@ -79,8 +79,9 @@ export function useTransitionRequisitionStatus() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ id, status, notes }: { id: string; status: RequisitionStatus; notes?: string }) =>
-      apiClient<Requisition>(`/requisitions/${id}/status?status=${status}&notes=${encodeURIComponent(notes || '')}`, {
-        method: 'PATCH',
+      apiClient<Requisition>(`/requisitions/${id}/transition`, {
+        method: 'POST',
+        body: JSON.stringify({ newStatus: status, notes: notes || '' }),
       }),
     onSuccess: (_, { id }) => {
       queryClient.invalidateQueries({ queryKey: REQUISITION_KEYS.detail(id) });

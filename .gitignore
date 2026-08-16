@@ -54,7 +54,7 @@ logs/
 
 # Build outputs
 build/
-out/
+/out/
 
 # Test coverage reports
 coverage/

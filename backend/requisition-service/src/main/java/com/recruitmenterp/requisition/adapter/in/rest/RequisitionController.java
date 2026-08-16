@@ -54,13 +54,22 @@ public class RequisitionController {
     }
 
     @PostMapping("/{id}/transition")
-    @PreAuthorize("hasAnyRole('TENANT_ADMIN', 'BRANCH_MANAGER', 'RECRUITER', 'COMPLIANCE_OFFICER')")
     @Operation(summary = "Transition requisition status")
     public RequisitionResponse transitionStatus(@PathVariable UUID id, 
                                                 @Valid @RequestBody TransitionRequest request,
                                                 @AuthenticationPrincipal Jwt jwt) {
         String actor = jwt != null ? jwt.getClaimAsString("preferred_username") : "SYSTEM";
         return service.transitionStatus(id, request.newStatus(), request.notes(), actor);
+    }
+
+    @PatchMapping("/{id}/status")
+    @Operation(summary = "Update requisition status via query parameters")
+    public RequisitionResponse updateStatus(@PathVariable UUID id,
+                                           @RequestParam RequisitionStatus status,
+                                           @RequestParam(required = false, defaultValue = "") String notes,
+                                           @AuthenticationPrincipal Jwt jwt) {
+        String actor = jwt != null ? jwt.getClaimAsString("preferred_username") : "SYSTEM";
+        return service.transitionStatus(id, status, notes, actor);
     }
 
     @GetMapping
