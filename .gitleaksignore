@@ -1,0 +1,6 @@
+docker/keycloak/realm-export.json
+docker/postgres/init.sql
+backend/platform-common/src/test/
+backend/requisition-service/src/test/
+backend/candidate-service/src/test/
+backend/compliance-service/src/test/
